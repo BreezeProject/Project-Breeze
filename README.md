@@ -1,0 +1,3 @@
+# Project-Breeze
+A useful tool for schools, teachers, and students to access grades, classes, and much more...
+Mobile compatibility with responsive design.
