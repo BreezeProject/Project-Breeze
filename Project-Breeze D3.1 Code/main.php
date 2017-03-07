@@ -2,45 +2,40 @@
  ob_start();
  session_start();
  require_once 'Database.php';
- $admin = 13;
+
  // if session is not set this will redirect to login page
- if( !isset($_SESSION['user']) ) {
+ if( !isset($_SESSION['userID']) ) {
   header("Location: index.php");
   exit;
  }else{
    // select the logged in users row to display their name
-   $res=mysql_query("SELECT userName FROM users WHERE userId=".$_SESSION['user']);
+   $user = $_SESSION['userID'];
+   $res=mysql_query("SELECT userName FROM users WHERE userID='$user'");
    $userRow=mysql_fetch_array($res);
    $name = $userRow['userName'];
+   $name = explode(' ',trim($name));
+   $name = $name[0];
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 
-<title>Welcome to The Website! </title>
-<h2>Login was Successful! Thank you <?php echo $name; ?>! Enjoy!</h2>
+<title> Breeze </title>
+<h2> Welcome back <?php echo $name ?>.</h2>
 </head>
 <body>
 <ul>
-  <li><a href="message.php">Message Another User</a></li>
-  <li><a href="index2.html">About Me</a></li>
-  <li><a href="pictures.html">Pictures</a></li>
-  <li><a href='edit.php'>Change User Info</a></li>
-  <li><a href='logout.php'>Log Out Here</a></li>
-  <li><a href='print.php'>Print Database Table Here</a></li>
-  <li><a href='read.php'>Read messages</a></li>
+  <li><a href='edit.php'>Change Account Info</a></li>
   <?php
-    if($_SESSION['user']== $admin){
+    if($_SESSION['userType']== "Admin"){
 
   ?>
-  <li><a href = 'admin.php'>Super Secret Admin Page</a></li>
+  <li><a href = 'admin.php'>Admin Page</a></li>
   <?php
   }
   ?>
+  <li><a href='logout.php'>Log Out</a></li>
   </ul>
-
-
-
 </html>
 <?php ob_end_flush(); ?>
