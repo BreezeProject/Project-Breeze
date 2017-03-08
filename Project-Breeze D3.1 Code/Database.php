@@ -1,11 +1,11 @@
 <?php
-//creates the database
 error_reporting(~E_DEPRECATED & ~E_NOTICE);
 
-define('DBHOST', 'tund.cefns.nau.edu');
-define('DBUSER', 'jls865');
-define('DBPASS', 'bucky392');
-define('DBNAME', 'jls865');
+//define('DBHOST', 'tund.cefns.nau.edu');
+define('DBHOST', 'localhost');
+define('DBUSER', 'root');
+define('DBPASS', '');
+define('DBNAME', 'master');
  
 $connect = mysql_connect(DBHOST,DBUSER,DBPASS);
 $dbconnect = mysql_select_db(DBNAME);

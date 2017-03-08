@@ -4,7 +4,7 @@
  require('Database.php');
  
 //makes it so you wont ever see login page if you are logged in.
-if ( isset($_SESSION['user'])!="" ) {
+if ( isset($_SESSION['userID'])!="" ) {
 header("Location: main.php");
 exit;
  }
@@ -14,20 +14,18 @@ exit;
  if( isset($_POST['login']) ) { 
   
   // prevent sql injections/ clear user invalid inputs
-  $email = trim($_POST['email']);
-  $email = strip_tags($email);
-  $email = htmlspecialchars($email);
+  $id = trim($_POST['id']);
+  $id = strip_tags($id);
+  $id = htmlspecialchars($id);
   
   $pass = trim($_POST['pass']);
   $pass = strip_tags($pass);
   $pass = htmlspecialchars($pass);
   // prevent sql injections / clear user invalid inputs
-  if(empty($email)){
+  
+  if(empty($id)){
    $error = true;
-   $emailError = "Please enter your email address.";
-  } else if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
-   $error = true;
-   $emailError = "Please enter valid email address.";
+   $idError = "Please enter your User ID.";
   }
   
   if(empty($pass)){
@@ -37,70 +35,50 @@ exit;
 
   // if there's no error, continue to login
   if (!$error) {
-    $res =mysql_query("SELECT userId, userName, userPass FROM users WHERE userEmail='$email'");
+    $res =mysql_query("SELECT userID, userName, userPassword, userEmail, userType FROM users WHERE userID='$id'");
     $row=mysql_fetch_array($res);
-    if(strcmp($row['userPass'],$pass)==0) {
-      $_SESSION['user'] = $row['userId'];
-      mysql_query("UPDATE 'useractivity' SET 'userlogin' = now() WHERE 'userId'=" .$_SESSION['user']);
+    if(strcmp($row['userPassword'],$pass)==0) {
+      $_SESSION['userID'] = $row['userID'];
+	  $_SESSION['userType'] = $row['userType'];
       header("Location: main.php");
 
     } else {
-      $errMSG = "Incorrect Credentials, Try again...";
+      $errMSG = "Incorrect Credentials, Please try again.";
       }
-
-    //finds the id field with matching emails
-    $idq = mysql_query("SELECT userId FROM users WHERE userEmail= '$email'");
-
-    //gets the id row
-    $idr = mysql_fetch_array($idq);
-    $id = $idr['userId'];
-    //matches id with user activity id so that the users activity is tracked
-    $query1= "INSERT INTO useractivity(userid) VALUES ('$id')";
-    mysql_query($query1);
-
-
-
-    
   }
-  
  }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title> Login To Josh's Website:</title>
+<title> Breeze </title>
 </head>
 
   <form method="post" action="" autocomplete="off">
     
-   <h2> Please Enter Your Email And Password</h2>
+   <h2> Please Login </h2>
 
     <?php
       if(isset($errMSG)){
             ?>
         <?php echo $errMSG; ?>
 
-
         <?php
 
     }
       ?>
 
-      <input type="email" name="email" class="form-control" placeholder="Your Email" value="<?php echo $email; ?>" maxlength="40" />
+      <input type="text" name="id" class="form-control" placeholder="User ID:" value="<?php echo $id; ?>" maxlength="40" />
 
-                <span class="text-danger"><?php echo $emailError; ?></span>
+                <span class="text-danger"><?php echo $idError; ?></span>
             
-      <input type="pass" name="pass" class="form-control" placeholder="Your Password" maxlength="15" />
-      <?php echo $passError; ?></span>
-            
-            
-            
+      <input type="password" name="pass" class="form-control" placeholder="Password:" maxlength="15" />
+      <span class="text-danger"><?php echo $passError; ?></span>
            
-      <input class="btn btn-lg btn-success btn-block" type="submit" value="Log-In" name="login" >
+      <input class="btn btn-lg btn-success btn-block" type="submit" value="Log In" name="login" >
      
       <ul>    
-      <li><a href="register.php">No account? Sign Up Here</a></li>
-      <li><a href="email2.php">Email Me Directly</a></li>
+      <li><a href="email2.php">Contact an Admin</a></li>
       </ul>
 
    

@@ -1,22 +1,29 @@
 <?php
 session_start();
 include('Database.php');
-$admin = 13;
-//doesn't allow anyone not the admin to access
-if($_SESSION['user'] != $admin){
-	header("Location: main.php");
-}
+ if( isset($_SESSION['userType'])!="Admin" ){
+  header("Location: main.php");
+ }
+ 
+  if( !isset($_SESSION['userID']) ) {
+  header("Location: index.php");
+  exit;
+  
+ }
 ?>
 <html>
 <head>
-<p> test</p>
+<p> Administative Actions</p>
 
 </head>
 <body>
 <ul>
-	<li><a href="message.php">Read Messages</a></li>
-	<li><a href="ramessages.php">Read All Messages</a></li>
-	<li><a href="deletem.php">Delete Messages</a></li>
+	<li><a href="registerStudent.php">Create a new user</a></li>
+	<li><a href="registerClass.php">Create a new class</a></li>
+	<li><a href="register.php">Remove a class</a></li>
+	<li><a href="register.php">Assign a student to a class</a></li>
+	<li><a href="register.php">Unassign a student from a class</a></li>
+	<li><a href="main.php">Home</a></li>
  </ul>
 </html>
 
