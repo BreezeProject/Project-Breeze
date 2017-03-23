@@ -18,9 +18,9 @@
   $id = strip_tags($id);
   $id = htmlspecialchars($id);
   
-  $classId = trim($_POST['pass']);
-  $classId = strip_tags($pass);
-  $classId = htmlspecialchars($pass);
+  $classID = trim($_POST['classID']);
+  $classID = strip_tags($classID);
+  $classID = htmlspecialchars($classID);
   
   // id Error Checking
   if (empty($id)){
@@ -38,9 +38,9 @@
   }
   
   // id Error Checking
-  if (empty($classId)){
+  if (empty($classID)){
    $error = 1;
-   $classError = "Please enter an ID.";
+   $classError = "Please enter a Class ID.";
   }else {
    // check if the class exists
    $query = "SELECT ID FROM classes WHERE ID='$classID'";
@@ -48,7 +48,7 @@
    $count = mysql_num_rows($result);
    if($count!=1){
     $error = 1;
-    $emailError = "Provided Class ID is dosent exist.";
+    $classError = "Provided Class ID is dosent exist.";
    }
   }
   
@@ -56,14 +56,14 @@
   if($error==0) {
     
     //puts the information into the database
-    $query = "INSERT INTO classlist(ClassID, StudentID) VALUES('$classID','$id')";
+    $query = "INSERT INTO classlists(ClassID, StudentID) VALUES('$classID','$id')";
     $results = mysql_query($query);
 
 
     //error checking
     if ($results) {
       $errTyp = "success";
-      $errMSG = "Successfully registered, you may login now";
+      $errMSG = "Successfully registered";
       unset($id);
 	  unset($classID);
      } else {
@@ -109,10 +109,9 @@
 			<input type="text" name="id" class="form-control" placeholder="Enter Student ID" maxlength="50" value="<?php echo $id ?>" />
 
                 <span class="text-danger"><?php echo $IDError; ?></span>
+                      
             
-            
-            
-             <input type="password" name="classId" class="form-control" placeholder="Enter Class ID" maxlength="15" />
+             <input type="text" name="classID" class="form-control" placeholder="Enter Class ID" maxlength="15" />
                 
                 <span class="text-danger"><?php echo $classError; ?></span>
  

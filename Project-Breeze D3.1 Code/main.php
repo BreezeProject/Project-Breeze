@@ -35,7 +35,17 @@
   <?php
   }
   ?>
+  <?php
+    if($_SESSION['userType']== "Teacher"){
+
+  ?>
+  <li><a href = 'teacher.php'>Teacher Page</a></li>
+  <?php
+  }
+  ?>
   <li><a href='logout.php'>Log Out</a></li>
   </ul>
+  </body>
 </html>
 <?php ob_end_flush(); ?>
+
