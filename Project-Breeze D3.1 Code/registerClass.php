@@ -60,6 +60,10 @@
 	  $DayFriday = trim($_POST['DayFriday']);
 	  $DayFriday = strip_tags($DayFriday);
 	  $DayFriday = htmlspecialchars($DayFriday);
+	  
+	  $ClassDesc = trim($_POST['ClassDesc']);
+	  $ClassDesc = strip_tags($ClassDesc);
+	  $ClassDesc = htmlspecialchars($ClassDesc);
   
   //Name Error Checking
   if (empty($ClassName)) {
@@ -102,9 +106,17 @@
   
   // if no error sign the user up into the database
   if($error==0) {
-    
+    $MaxNumStudents = intval($_POST['MaxStudents']);
     //puts the information into the database
-    $query = "INSERT INTO classes(Name, TeacherID, Location, MaxNumStudents, StartTime, EndTime, DaysOfWeek, Description) VALUES('$ClassName','$CLocation','$MaxNumStudents','$StartTime','$EndTime','$DayMonday . $DayTuesday . $DayWednesday . $DayThursday . $DayFriday','$ClassDesc')";
+    $query = "INSERT INTO classes(Name, TeacherID, Location, MaxNumStudents, StartTime, EndTime, DaysOfWeek, Desciption) VALUES('$ClassName','$TID','$CLocation','$MaxStudents','$StartTime','$EndTime','$DayMonday $DayTuesday $DayWednesday $DayThursday $DayFriday','$ClassDesc')";
+    $results = mysql_query($query);
+	
+	$query = "SELECT * FROM classes ORDER BY ID DESC LIMIT 1";
+    $results = mysql_query($query);
+	$classID = mysql_fetch_array($results);
+	$classID = $classID['ID'];
+	
+	$query = "INSERT INTO classlists(ClassID, StudentID) VALUES('$classID','$TID')";
     $results = mysql_query($query);
 
 

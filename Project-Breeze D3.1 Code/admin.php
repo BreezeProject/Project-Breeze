@@ -21,7 +21,7 @@ include('Database.php');
 	<li><a href="registerStudent.php">Create a new user</a></li>
 	<li><a href="registerClass.php">Create a new class</a></li>
 	<li><a href="register.php">Remove a class</a></li>
-	<li><a href="register.php">Assign a student to a class</a></li>
+	<li><a href="registerForClass.php">Assign a student to a class</a></li>
 	<li><a href="register.php">Unassign a student from a class</a></li>
 	<li><a href="main.php">Home</a></li>
  </ul>
