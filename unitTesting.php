@@ -78,10 +78,66 @@ if ($results) {
 
 
 // 4. Upload and Download a file as a Student
+ // Upload
+$fileName = 'testfile.txt'
+$fileSize = '1000mb'
+$fileType = '.docx'
+ $query = "INSERT INTO upload (name, size, type, content ) ".
+"VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
+$results = mysql_query($query);
+
+if ($results){
+	$test4_pt1 = 'Test 4 part 1 Passed';
+}
+else{
+	$test4_pt1 = 'Test 4 part 1 Failed'
+}
+// Download
+
+$id    = 'Student';
+$query = "SELECT name, type, size, content " .
+         "FROM upload WHERE id = '$id'";
+$results = mysql_query($query);
+if($results){
+	$test4_pt2 = 'Test 4 Part 2 Passed';
+}
+
+else {
+	$test4_pt2 = 'Test 4 Part 2 Failed';
+
+}
+
 // 5. Assign a Student to a class
+$id = 'Admin';
+$classID = 'CS386';
+$query = "INSERT INTO classlists(ClassID, StudentID) VALUES('$classID','$id')";
+$results = mysql_query($query);
+
+if($results){
+	$test5 = 'Test 5 Passed';
+}
+else {
+	$test5 = 'Test 5 Failed';
+}
+
 // 6. View all Classes as a Student
+$userID = 'Student';
+$query = "SELECT classID FROM classlists WHERE StudentID='$userID'";
+$results = mysql_query($query);
+if($result){
+	$test6 = 'Test 6 Passed';
+}
+
+else{
+	$test6 = 'Test 6 Failed';
+}
 // Echo Results
 echo $testOne; 
 echo $testTwo; 
 echo $testThree; 
+echo $test4_pt1;
+echo $test4_pt2;
+echo $test5;
+echo $test6;
+_
 ?>
