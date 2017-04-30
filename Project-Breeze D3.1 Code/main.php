@@ -43,6 +43,14 @@
   <?php
   }
   ?>
+  <?php
+    if($_SESSION['userType']== "Student"){
+
+  ?>
+  <li><a href = 'student.php'>Student Page</a></li>
+  <?php
+  }
+  ?>
   <li><a href='logout.php'>Log Out</a></li>
   </ul>
   </body>

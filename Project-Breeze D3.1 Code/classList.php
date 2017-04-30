@@ -30,7 +30,7 @@ if( !isset($_SESSION['userID']) ) {
 	   $query = "SELECT ID, Name FROM classes WHERE classes.ID = '$cID'";
 	   $info_res = mysql_query($query);
 	   $info = mysql_fetch_array($info_res);
-	   echo "Class ID: " , $info['ID'] , " | " , $info['Name'] , " | ";?> <a href="main.php">Grades</a> <?php echo " | " ;?><a href="main.php">Upload</a><?php
+	   echo "Class ID: " , $info['ID'] , " | " , $info['Name'] , " | ";?> <a href="main.php">Grades</a> <?php echo " | " ;?><a href="main.php">Upload</a><?php echo " | " ;?> <a href="createQuiz.php">Create Quiz</a> <br><?php
 	}
 	}
 	
@@ -43,16 +43,32 @@ if( !isset($_SESSION['userID']) ) {
 	   $query = "SELECT ID, Name FROM classes WHERE classes.ID = '$cID'";
 	   $info_res = mysql_query($query);
 	   $info = mysql_fetch_array($info_res);
-	   echo "Class ID: " , $info['ID'] , " | " , $info['Name'] , " | ";?> <a href="main.php">Grades</a> <?php
+	   echo "Class ID: " , $info['ID'] , " | " , $info['Name'] , " | ";?> <a href="main.php">Grades</a> <br><?php echo " | " ;?><a href="main.php">Upload</a><?php
 	}
+	
 	}
 	?>
 
 	
     <ul> 
 	<li><a href="main.php">Home</a></li>
-	<li><a href="teacher.php">Teacher Actions</a></li>
-    <li><a href="email2.php">Contact an Admin</a></li>
+	  <?php
+		if($_SESSION['userType']== "Teacher"){
+
+	  ?>
+	  <li><a href = 'teacher.php'>Teacher Page</a></li>
+	  <?php
+	  }
+  ?>
+  
+   <?php
+		if($_SESSION['userType']== "Student"){
+
+	  ?>
+	  <li><a href = 'class.php'>Class Viewer</a></li>
+	  <?php
+	  }
+  ?>
     </ul>
 
    

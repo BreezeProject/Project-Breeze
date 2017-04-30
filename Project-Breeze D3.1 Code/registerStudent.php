@@ -73,9 +73,7 @@
 
   // if no error sign the user up into the database
   if($error==0) {
-    if ($admin = 1) {$type = "Admin";}
-	if ($student = 1) {$type = "Student";}
-	if ($teacher = 1) {$type = "Teacher";}
+	$type = $_POST['test'];
     //puts the information into the database
 	
     $query = "INSERT INTO users(userID,userName,userPassword,userEmail,userType) VALUES('$id','$name','$pass','$email', '$type')";
@@ -149,10 +147,10 @@
                 
                 <span class="text-danger"><?php echo $passError; ?></span>
  
-			<div>
-            <input type="radio" id="admin" value="Admin" /> Admin<br>
-			<input type="radio" id="student" value="Student" /> Student<br>
-			<input type="radio" id="teacher" value="Teacher" /> Teacher<br>
+			<div id = "radio">
+            <label><input type="radio" name="test" value="Admin"> Admin</label>
+			<label><input type="radio" name="test" value="Student" checked> Student</label>
+			<label><input type="radio" name="test" value="Teacher"> Teacher</label>
             </div>
 			
             <button type="submit" class="btn btn-block btn-primary" name="btn-signup">submit</button>
