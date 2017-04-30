@@ -105,7 +105,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Create a user </title>
+<title> Breeze </title>
 </head>
 <body>
 
@@ -114,7 +114,7 @@
   <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
     
 
-  <h2 class="">Create a user:</h2>
+  <h2 class="">Create a User</h2>
 
 
             
@@ -129,40 +129,91 @@
 <?php
    }
    ?>
-			<input type="text" name="id" class="form-control" placeholder="Enter ID" maxlength="50" value="<?php echo $id ?>" />
+   
+   <table style="width:15%">
+   
+    <tr>
+	<td> Student ID:</td>
+	<td><input type="text" name="id" class="form-control" placeholder="Enter Student ID" maxlength="50" value="<?php echo $id ?>" />
+	<span class="text-danger"><?php echo $IDError; ?></span> </td>
+	</tr>
+	
+	<tr>
+	<td> Student Name:</td>
+	<td><input type="text" name="name" class="form-control" placeholder="Enter Student Name" maxlength="50" value="<?php echo $name ?>" />
+	<span class="text-danger"><?php echo $nameError; ?></span> </td>
+	</tr>
+	
+	<tr>
+	<td> Student Email:</td>
+	<td><input type="text" name="email" class="form-control" placeholder="Enter Student Email" maxlength="50" value="<?php echo $email ?>" />
+	<span class="text-danger"><?php echo $emailError; ?></span> </td>
+	</tr>
 
-                <span class="text-danger"><?php echo $IDError; ?></span>
-            
-             <input type="text" name="name" class="form-control" placeholder="Enter Name" maxlength="50" value="<?php echo $name ?>" />
-
-                <span class="text-danger"><?php echo $nameError; ?></span>
-
-            
-             <input type="email" name="email" class="form-control" placeholder="Enter Email" maxlength="40" value="<?php echo $email ?>" />
-              
-                <span class="text-danger"><?php echo $emailError; ?></span>
-            
-            
-             <input type="password" name="pass" class="form-control" placeholder="Enter Password" maxlength="15" />
-                
-                <span class="text-danger"><?php echo $passError; ?></span>
+	<tr>
+	<td> Student Password</td>
+	<td><input type="password" name="pass" class="form-control" placeholder="Enter Student Password" maxlength="15"/>
+	<span class="text-danger"><?php echo $passError; ?></span> </td>
+	</tr>
+           
+    </table>        
  
-			<div id = "radio">
-            <label><input type="radio" name="test" value="Admin"> Admin</label>
-			<label><input type="radio" name="test" value="Student" checked> Student</label>
-			<label><input type="radio" name="test" value="Teacher"> Teacher</label>
-            </div>
+	<div id = "radio">
+	<label><input type="radio" name="test" value="Admin"> Admin</label><br>
+	<label><input type="radio" name="test" value="Student" checked> Student</label><br>
+	<label><input type="radio" name="test" value="Teacher"> Teacher</label><br>
+	</div>
 			
-            <button type="submit" class="btn btn-block btn-primary" name="btn-signup">submit</button>
-            
-			<br>
 			
-			<a href = "admin.php">Administrative Actions</a>
-            <a href = "main.php">Home</a>
-
-        
+					
+    
+	<button type="submit" class="btn btn-block btn-primary" name="btn-signup">Submit</button>
+ 
     </form>
+	
+	
+	
+	<h4> Navigation </h4> 
+	<ul>
+	<li><a href='main.php'>Home</a></li>
+	<li><a href='edit.php'>Change Account Info</a></li>
+	<?php
+	if($_SESSION['userType']== "Admin"){
 
+	?>
+	<li><a href="registerStudent.php">Create a New User</a></li>
+	<li><a href="main.php">Delete a User</a></li>
+	<li><a href="registerClass.php">Create a New Class</a></li>
+	<li><a href="main.php">Delete a Class</a></li>
+	<li><a href="registerForClass.php">Assign a Student to a Class</a></li>
+	<li><a href="main.php">Unassign a Student from a Class</a></li>
+	<?php
+	}
+	?>
+	<?php
+	if($_SESSION['userType']== "Teacher"){
+
+	?>
+	<li><a href="classList.php">View Classes</a></li>
+	<li><a href="main.php">Open Gradebook</a></li>
+	<li><a href="createQuiz.php">Create a Quiz</a></li>
+	<li><a href="class.php">View a Class</a></li>
+	<?php
+	}
+	?>
+	<?php
+	if($_SESSION['userType']== "Student"){
+
+	?>
+	<li><a href="classList.php">View Classes</a></li>
+	<li><a href='takeQuiz.php'>Take a Quiz</a></li>
+	<li><a href='main.php'>Upload an Assignment</a></li>
+	<li><a href="class.php">View a Class</a></li>
+	<?php
+	}
+	?>
+	<li><a href='logout.php'>Log Out</a></li>
+	</ul>
 </body>
 </html>
 <?php ob_end_flush(); ?>

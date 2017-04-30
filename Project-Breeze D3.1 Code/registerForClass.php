@@ -82,7 +82,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Assign a user </title>
+<title> Breeze </title>
 </head>
 <body>
 
@@ -91,7 +91,7 @@
   <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
     
 
-  <h2 class="">Assign a user:</h2>
+  <h2 class=""> Assign a User to a Class </h2>
 
 
             
@@ -106,26 +106,68 @@
 <?php
    }
    ?>
-			<input type="text" name="id" class="form-control" placeholder="Enter Student ID" maxlength="50" value="<?php echo $id ?>" />
-
-                <span class="text-danger"><?php echo $IDError; ?></span>
-                      
-            
-             <input type="text" name="classID" class="form-control" placeholder="Enter Class ID" maxlength="15" />
-                
-                <span class="text-danger"><?php echo $classError; ?></span>
- 
-			
-            <button type="submit" class="btn btn-block btn-primary" name="btn-signup">Assign</button>
-            
-			<br>
-			
-			<a href = "admin.php">Administrative Actions</a>
-            <a href = "main.php">Home</a>
-
+   
+    <table style="width:15%">
+	
+	<tr>
+	<td> Student ID:</td>
+	<td><input type="text" name="id" class="form-control" placeholder="Enter Student ID" maxlength="15" value="<?php echo $id ?>" />
+	<span class="text-danger"><?php echo $IDError; ?></span> </td>
+	</tr>
+	
+	<tr>
+	<td> Class ID:</td>
+	<td><input type="text" name="classID" class="form-control" placeholder="Enter Class ID" maxlength="15" value="<?php echo $id ?>" />
+	<span class="text-danger"><?php echo $classError; ?></span> </td>
+	</tr>
+		
+	</table> 
         
+	<button type="submit" class="btn btn-block btn-primary" name="btn-signup">Assign</button>	
+		
     </form>
+	
+	
 
+	<h4> Navigation </h4> 
+	<ul>
+	<li><a href='main.php'>Home</a></li>
+	<li><a href='edit.php'>Change Account Info</a></li>
+	<?php
+	if($_SESSION['userType']== "Admin"){
+
+	?>
+	<li><a href="registerStudent.php">Create a New User</a></li>
+	<li><a href="main.php">Delete a User</a></li>
+	<li><a href="registerClass.php">Create a New Class</a></li>
+	<li><a href="main.php">Delete a Class</a></li>
+	<li><a href="registerForClass.php">Assign a Student to a Class</a></li>
+	<li><a href="main.php">Unassign a Student from a Class</a></li>
+	<?php
+	}
+	?>
+	<?php
+	if($_SESSION['userType']== "Teacher"){
+
+	?>
+	<li><a href="classList.php">View Classes</a></li>
+	<li><a href="main.php">Open Gradebook</a></li>
+	<li><a href="createQuiz.php">Create a Quiz</a></li>
+	<?php
+	}
+	?>
+	<?php
+	if($_SESSION['userType']== "Student"){
+
+	?>
+	<li><a href="classList.php">View Classes</a></li>
+	<li><a href='takeQuiz.php'>Take a Quiz</a></li>
+	<li><a href='main.php'>Upload an Assignment</a></li>
+	<?php
+	}
+	?>
+	<li><a href='logout.php'>Log Out</a></li>
+	</ul>
 </body>
 </html>
 <?php ob_end_flush(); ?>

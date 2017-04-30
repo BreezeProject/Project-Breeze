@@ -58,7 +58,7 @@ include('Database.php');
  if($error==0) {
     
     //puts the information into the database
-    $query = "INSERT INTO quizes(classID, teacherID, Questions, Answers) VALUES('$classID','teacherID', '$Q1 ; $Q2 ; $Q3 ; $Q4 ; $Q5', '$Q1Correct ; $Q2Correct ; $Q3Correct ; $Q4Correct ; $Q5Correct')";
+    $query = "INSERT INTO quizes(classID, teacherID, Questions, Answers) VALUES('$classID','teacherID', '$Q1;$Q2;$Q3;$Q4;$Q5', '$Q1Correct;$Q2Correct;$Q3Correct;$Q4Correct;$Q5Correct')";
     $results = mysql_query($query);
 
 
@@ -82,7 +82,7 @@ include('Database.php');
 ?>
 <html>
 <head>
-<title> New Quiz Creation</title>
+<title> Breeze </title>
 </head>
 <body>
 
@@ -101,37 +101,119 @@ include('Database.php');
    }
    ?>
 
-  <h2 class="">Create a Quiz:</h2>
+  <h2 class="">Create a Quiz</h2>
+ <table style="width:15%">
+ 
+  <tr>
+  <td> Class ID: </td>
+  <td> <input type="text" name="classID" class="form-control" placeholder="Class ID" maxlength="50" />
+  <span class="text-danger"><?php echo $ClassError; ?></span> </td>
+  </tr>
   
-  <input type="text" name="classID" class="form-control" placeholder="Class ID" maxlength="50" />
-  <span class="text-danger"><?php echo $ClassError; ?></span> <br>
+  <tr>
+  <td>Question 1:</td>
+  <td><input type="text" name="Q1" class="form-control" placeholder="Enter Question 1" maxlength="250" />
+  <span class="text-danger"><?php echo $QuestionError; ?></span> </td>
+  </tr>
   
-  <input type="text" name="Q1" class="form-control" placeholder="Enter Question" maxlength="250" />
-  <span class="text-danger"><?php echo $QuestionError; ?></span> <br>
-  <input type="number" name="Q1Correct" class="form-control" placeholder="Enter Correct Answer Number" maxlength="1" />           
-  <span class="text-danger"><?php echo $AnswerError; ?></span> <br>
+  <tr>
+  <td>Correct Answer's Number: </td>
+  <td><input type="number" name="Q1Correct" class="form-control" placeholder="Enter Correct Answer Number" maxlength="1" />           
+  <span class="text-danger"><?php echo $AnswerError; ?></span>  </td>
+  </tr>
   
-  <input type="text" name="Q2" class="form-control" placeholder="Enter Question" maxlength="250" />
-  <span class="text-danger"><?php echo $QuestionError; ?></span> <br>
-  <input type="number" name="Q2Correct" class="form-control" placeholder="Enter Correct Answer Number" maxlength="1" />           
-  <span class="text-danger"><?php echo $AnswerError; ?></span> <br>
+  <tr>
+  <td>Question 2:</td>
+  <td><input type="text" name="Q2" class="form-control" placeholder="Enter Question 2" maxlength="250" />
+  <span class="text-danger"><?php echo $QuestionError; ?></span>  </td>
+  </tr>
   
-  <input type="text" name="Q3" class="form-control" placeholder="Enter Question" maxlength="250" />
-  <span class="text-danger"><?php echo $QuestionError; ?></span> <br>
-  <input type="number" name="Q3Correct" class="form-control" placeholder="Enter Correct Answer Number" maxlength="1" />           
-  <span class="text-danger"><?php echo $AnswerError; ?></span> <br>
+  <tr>
+  <td>Correct Answer's Number: </td>
+  <td><input type="number" name="Q1Correct" class="form-control" placeholder="Enter Correct Answer Number" maxlength="1" />           
+  <span class="text-danger"><?php echo $AnswerError; ?></span>  </td>
+  </tr>
   
-  <input type="text" name="Q4" class="form-control" placeholder="Enter Question" maxlength="250" />
-  <span class="text-danger"><?php echo $QuestionError; ?></span> <br>
-  <input type="number" name="Q4Correct" class="form-control" placeholder="Enter Correct Answer Number" maxlength="1" />           
-  <span class="text-danger"><?php echo $AnswerError; ?></span> <br>
+  <tr>
+  <td>Question 3:</td>
+  <td><input type="text" name="Q3" class="form-control" placeholder="Enter Question 3" maxlength="250" />
+  <span class="text-danger"><?php echo $QuestionError; ?></span> </td> 
+  </tr>
   
-  <input type="text" name="Q5" class="form-control" placeholder="Enter Question" maxlength="250" />
-  <span class="text-danger"><?php echo $QuestionError; ?></span> <br>
-  <input type="number" name="Q5Correct" class="form-control" placeholder="Enter Correct Answer Number" maxlength="1" />           
-  <span class="text-danger"><?php echo $AnswerError; ?></span> <br>
+  <tr>
+  <td>Correct Answer's Number: </td>
+  <td><input type="number" name="Q1Correct" class="form-control" placeholder="Enter Correct Answer Number" maxlength="1" />           
+  <span class="text-danger"><?php echo $AnswerError; ?></span>  </td>
+  </tr>
   
+  <tr>
+  <td>Question 4:</td>
+  <td><input type="text" name="Q4" class="form-control" placeholder="Enter Question 4" maxlength="250" />
+  <span class="text-danger"><?php echo $QuestionError; ?></span> </td>
+  </tr>
+  
+  <tr>
+  <td>Correct Answer's Number: </td>
+  <td><input type="number" name="Q1Correct" class="form-control" placeholder="Enter Correct Answer Number" maxlength="1" />           
+  <span class="text-danger"><?php echo $AnswerError; ?></span>  </td>
+  </tr>
+  
+  <tr>
+  <td>Question 5:</td>
+  <td><input type="text" name="Q5" class="form-control" placeholder="Enter Question 5" maxlength="250" />
+  <span class="text-danger"><?php echo $QuestionError; ?></span>  </td>
+  </tr>
+  
+  <tr>
+  <td>Correct Answer's Number: </td>
+  <td><input type="number" name="Q1Correct" class="form-control" placeholder="Enter Correct Answer Number" maxlength="1" />           
+  <span class="text-danger"><?php echo $AnswerError; ?></span>  </td>
+  </tr>
+  
+  </table>
   <button type="submit" class="btn btn-block btn-primary" name="btn-signup">Create</button>
+  
+  <h4> Navigation </h4> 
+	<ul>
+	<li><a href='main.php'>Home</a></li>
+	<li><a href='edit.php'>Change Account Info</a></li>
+	<?php
+	if($_SESSION['userType']== "Admin"){
+
+	?>
+	<li><a href="registerStudent.php">Create a New User</a></li>
+	<li><a href="main.php">Delete a User</a></li>
+	<li><a href="registerClass.php">Create a New Class</a></li>
+	<li><a href="main.php">Delete a Class</a></li>
+	<li><a href="registerForClass.php">Assign a Student to a Class</a></li>
+	<li><a href="main.php">Unassign a Student from a Class</a></li>
+	<?php
+	}
+	?>
+	<?php
+	if($_SESSION['userType']== "Teacher"){
+
+	?>
+	<li><a href="classList.php">View Classes</a></li>
+	<li><a href="main.php">Open Gradebook</a></li>
+	<li><a href="createQuiz.php">Create a Quiz</a></li>
+	<li><a href="class.php">View a Class</a></li>
+	<?php
+	}
+	?>
+	<?php
+	if($_SESSION['userType']== "Student"){
+
+	?>
+	<li><a href="classList.php">View Classes</a></li>
+	<li><a href='takeQuiz.php'>Take a Quiz</a></li>
+	<li><a href='main.php'>Upload an Assignment</a></li>
+	<li><a href="class.php">View a Class</a></li>
+	<?php
+	}
+	?>
+	<li><a href='logout.php'>Log Out</a></li>
+	</ul>
   
   </body>
   </html>

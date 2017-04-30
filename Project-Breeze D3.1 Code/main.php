@@ -25,13 +25,20 @@
 <h2> Welcome back <?php echo $name ?>.</h2>
 </head>
 <body>
+<h4> Navigation </h4> 
 <ul>
-  <li><a href='edit.php'>Change Account Info</a></li>
+	<li><a href='main.php'>Home</a></li>
+	<li><a href='edit.php'>Change Account Info</a></li>
   <?php
     if($_SESSION['userType']== "Admin"){
 
   ?>
-  <li><a href = 'admin.php'>Admin Page</a></li>
+	<li><a href="registerStudent.php">Create a New User</a></li>
+	<li><a href="main.php">Delete a User</a></li>
+	<li><a href="registerClass.php">Create a New Class</a></li>
+	<li><a href="main.php">Delete a Class</a></li>
+	<li><a href="registerForClass.php">Assign a Student to a Class</a></li>
+	<li><a href="main.php">Unassign a Student from a Class</a></li>
   <?php
   }
   ?>
@@ -39,7 +46,10 @@
     if($_SESSION['userType']== "Teacher"){
 
   ?>
-  <li><a href = 'teacher.php'>Teacher Page</a></li>
+	<li><a href="classList.php">View Classes</a></li>
+	<li><a href="main.php">Open Gradebook</a></li>
+	<li><a href="createQuiz.php">Create a Quiz</a></li>
+	<li><a href="class.php">View a Class</a></li>
   <?php
   }
   ?>
@@ -47,11 +57,14 @@
     if($_SESSION['userType']== "Student"){
 
   ?>
-  <li><a href = 'student.php'>Student Page</a></li>
+	<li><a href="classList.php">View Classes</a></li>
+	<li><a href='takeQuiz.php'>Take a Quiz</a></li>
+	<li><a href='main.php'>Upload an Assignment</a></li>
+	<li><a href="class.php">View a Class</a></li>
   <?php
   }
   ?>
-  <li><a href='logout.php'>Log Out</a></li>
+	<li><a href='logout.php'>Log Out</a></li>
   </ul>
   </body>
 </html>
