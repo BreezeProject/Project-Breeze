@@ -41,7 +41,10 @@ echo "<h3>File $fileName successfully uploaded!</h3>";
 
 
 <html>
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="mainstyle.css">
+=======
+>>>>>>> origin/D3.3
 <h4> Upload material here for the class:</h4>
 <form method="post" enctype="multipart/form-data">
 <table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
