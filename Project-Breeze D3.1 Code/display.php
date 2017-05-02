@@ -10,7 +10,7 @@
  session_start();
  require('Database.php');
 
-$query = "SELECT id, name FROM upload";
+$query = "SELECT id, name, text FROM upload";
 $result = mysql_query($query) or die('Error, query failed');
 if(mysql_num_rows($result) == 0)
 {
@@ -21,10 +21,12 @@ else
 ?>
 <ul>
 <?php
-while(list($id, $name) = mysql_fetch_array($result))
+while(list($id, $name, $text) = mysql_fetch_array($result))
 {
 ?>
-<li><a href="download.php?id=<?php echo urlencode($id);?>"><?php echo urlencode($name);?></a> <br></li>
+<li><b>Link: <a href="download.php?id=<?php echo urlencode($id);?>"><?php echo urlencode($name);?></a></li>
+Text: <?php echo urlencode($text);?></b><br> </br>
+
 <?php
 }
 }
