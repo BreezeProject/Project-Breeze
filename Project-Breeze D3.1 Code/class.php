@@ -68,9 +68,9 @@ include('Database.php');
 
 	?>
 	<li><a href="registerStudent.php">Create a New User</a></li>
-	<li><a href="main.php">Delete a User</a></li>
+	<li><a href="delete.php">Delete a User</a></li>
 	<li><a href="registerClass.php">Create a New Class</a></li>
-	<li><a href="main.php">Delete a Class</a></li>
+	<li><a href="delete.php">Delete a Class</a></li>
 	<li><a href="registerForClass.php">Assign a Student to a Class</a></li>
 	<li><a href="main.php">Unassign a Student from a Class</a></li>
 	<?php
