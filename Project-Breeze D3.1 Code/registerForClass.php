@@ -82,6 +82,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="mainstyle.css">
 <title> Breeze </title>
 </head>
 <body>
@@ -107,7 +108,7 @@
    }
    ?>
    
-    <table style="width:15%">
+    <table style="width:100%">
 	
 	<tr>
 	<td> Student ID:</td>
@@ -127,8 +128,9 @@
 		
     </form>
 	
-	
-
+	<br>
+		<br>
+<div class="navigation">
 	<h4> Navigation </h4> 
 	<ul>
 	<li><a href='main.php'>Home</a></li>
@@ -168,6 +170,7 @@
 	?>
 	<li><a href='logout.php'>Log Out</a></li>
 	</ul>
+	</div>
 </body>
 </html>
 <?php ob_end_flush(); ?>

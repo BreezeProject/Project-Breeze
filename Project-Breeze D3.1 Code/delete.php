@@ -37,6 +37,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="mainstyle.css">
 <title> Breeze </title>
 <h2> Delete A User / Class</h2>
 </head>
@@ -44,7 +45,7 @@
 
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
 	
-	<table style="width:15%">
+	<table style="width:100%">
 	
 	<tr>
 	<td>Enter a Class ID: <input type="text" name="classID" class="form-control" placeholder="Enter Class ID" maxlength="50" value="<?php echo $classID ?>" />
@@ -64,7 +65,9 @@
 	<button type="submit" class="btn btn-block btn-primary" name="btn-signup">submit</button>
 
 	</form>
-	
+	<br>
+		<br>
+<div class="navigation">
 <h4> Navigation </h4> 
 <ul>
 	<li><a href='main.php'>Home</a></li>
@@ -103,6 +106,7 @@
   ?>
 	<li><a href='logout.php'>Log Out</a></li>
   </ul>
+  </div>
   </body>
 </html>
 <?php ob_end_flush(); ?>

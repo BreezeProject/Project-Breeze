@@ -90,7 +90,7 @@
 <html>
 <head>
 <title> Breeze </title>
-<link href="css.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="mainstyle.css">
 </head>
 <body>
 
@@ -109,36 +109,34 @@
 } 
 
 ?>
-      <div class = "table">
+      <table style="width:100%">
 
-            <div class = "row">
-              <div class "col">Change Name:<input type="text" name="name" class="form-control" placeholder="Enter Name" maxlength="50" value="<?php echo $name ?>" /></div>
-              
-              <span class="text-danger"><?php echo $nameError; ?></span>
-            </div>
-
+            <tr>
+			<td> Change Name: </td>
+            <td><input type="text" name="name" class="form-control" placeholder="Enter Name" maxlength="50" value="<?php echo $name ?>" />
+			<span class="text-danger"><?php echo $nameError; ?></span></td>
+            </tr>
             
-            <div class = "row">
-              <div class ="col">Change Email:<input type="email" name="email" class="form-control" placeholder="Enter Email" maxlength="40" value="<?php echo $email ?>" /></div>
-              
-              <span class="text-danger"><?php echo $emailError; ?></span></div>
+            <tr>
+			<td> Change Email: </td>
+            <td><input type="email" name="email" class="form-control" placeholder="Enter Email" maxlength="40" value="<?php echo $email ?>" />
+			<span class="text-danger"><?php echo $emailError; ?></span></td>
+            </tr>
             
+			<tr>
+			<td> Change Password: </td>
+            <td><input type="password" name="pass" class="form-control" placeholder="Enter Password" maxlength="15" />
+			<span class="text-danger"><?php echo $passError; ?></span></td>
+            </tr>			
             
-            <div class = "row">
-              <div class ="col">Change Password:<input type="password" name="pass" class="form-control" placeholder="Enter Password" maxlength="15" /></div>
-                
-              <span class="text-danger"><?php echo $passError; ?></span>
-            </div>
- 
-            <br>
-            
-            <div class = "row">
-              <div class ="col"><button type="submit" class="btn btn-block btn-primary" name="btn-change">Save</button></</div>
-            </div>
-            
-    
-    </form>
-
+			</table>
+			
+			<button type="submit" class="btn btn-block btn-primary" name="btn-change">Save</button>
+			
+		<br>
+		<br>
+	
+<div class="navigation">
 	<h4> Navigation </h4> 
 	<ul>
 	<li><a href='main.php'>Home</a></li>
@@ -180,6 +178,7 @@
 	?>
 	<li><a href='logout.php'>Log Out</a></li>
 	</ul>
+	</div>
 </body>
 </html>
 <?php ob_end_flush(); ?>

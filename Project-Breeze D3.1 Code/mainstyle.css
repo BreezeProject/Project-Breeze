@@ -1,0 +1,62 @@
+#main{
+	background-color: #00fff0;
+	color: black;
+	font-family: "Times New Roman";
+}
+
+
+* {
+	color: green;
+	zoom: 1.1;
+}
+
+.navigation {
+	color: green;
+	zoom: 1;
+}
+
+body {
+	margin-left: 20px;
+    background-color: lightblue;
+}
+
+/*headers*/
+
+h1 {
+    color: #255908;
+}
+h2 {
+    color: green;
+}
+h3 {
+    color: #32770b;
+}
+h4 {
+    color: #3d910e;
+}
+
+
+/* unvisited link */
+a:link {
+    color: darkgreen;
+}
+
+/* visited link */
+a:visited {
+    color: #4aa316;
+}
+
+/* mouse over link */
+a:hover {
+    color: teal;
+}
+
+/* selected link */
+a:active {
+    color: b;
+}
+
+.table {
+	color: green;
+	
+}

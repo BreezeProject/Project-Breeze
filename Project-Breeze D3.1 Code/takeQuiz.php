@@ -37,6 +37,7 @@ if( !isset($_SESSION['userID']) ) {
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="mainstyle.css">
 <title> Breeze </title>
 </head>
 <body>
@@ -45,7 +46,7 @@ if( !isset($_SESSION['userID']) ) {
    <h2> Quiz Selection </h2>
    
 	<input type="text" name="quizID" class="form-control" placeholder="Enter Quiz ID" maxlength="50" value="<?php echo $quizID ?>" />
-   <span class="text-danger"><?php echo $IDError; ?></span>
+    <span class="text-danger"><?php echo $IDError; ?></span>
 		
 	<button form_id= "top" type="submit" class="btn btn-block btn-primary" name="btn-signup">Select</button>
 	
@@ -75,9 +76,10 @@ if( !isset($_SESSION['userID']) ) {
 		<?php
 	  }
 	  ?>
-	
+	<br>
+		<br>
     </form>
-	
+	<div class="navigation">
 	<h4> Navigation </h4> 
 	<ul>
 	<li><a href='main.php'>Home</a></li>
@@ -119,7 +121,7 @@ if( !isset($_SESSION['userID']) ) {
 	?>
 	<li><a href='logout.php'>Log Out</a></li>
 	</ul>
-
+</div>
 
 </body>
 </html>

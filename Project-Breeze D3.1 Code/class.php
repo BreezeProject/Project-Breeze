@@ -29,6 +29,7 @@ include('Database.php');
 <head>
 
 <title> Breeze </title>
+<link rel="stylesheet" type="text/css" href="mainstyle.css">
 <h2> Class View </h2>
 </head>
 <body>
@@ -58,7 +59,9 @@ include('Database.php');
 		<?php
 	  }
 	  ?>
-		
+	<br>
+		<br>
+<div class="navigation">	
 	<h4> Navigation </h4> 
 	<ul>
 	<li><a href='main.php'>Home</a></li>
@@ -100,6 +103,7 @@ include('Database.php');
 	?>
 	<li><a href='logout.php'>Log Out</a></li>
 	</ul>
+	</div>
  </body>
 </html>
 <?php ob_end_flush(); ?>

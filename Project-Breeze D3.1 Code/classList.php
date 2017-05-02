@@ -12,6 +12,7 @@ if( !isset($_SESSION['userID']) ) {
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="mainstyle.css">
 <title> Breeze </title>
 </head>
 <body>
@@ -48,7 +49,10 @@ if( !isset($_SESSION['userID']) ) {
 	
 	}
 	?>
-
+</form>
+<br>
+		<br>
+<div class="navigation">
 	
 	<h4> Navigation </h4> 
 	<ul>
@@ -93,7 +97,7 @@ if( !isset($_SESSION['userID']) ) {
 	</ul>
 
    
-    </form>
+ </div>   
 
 </body>
 </html>

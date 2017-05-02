@@ -35,6 +35,7 @@ function valid_form(){
 }
 </script>
 
+<link rel="stylesheet" type="text/css" href="mainstyle.css">
 <title>Email Form</title>
 </head>
 <body>

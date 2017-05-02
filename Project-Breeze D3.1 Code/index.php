@@ -51,6 +51,7 @@ exit;
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="mainstyle.css">
 <title> Breeze </title>
 </head>
 
